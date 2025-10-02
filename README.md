@@ -7,7 +7,7 @@ Lerna ile yönetilen React (Frontend) + Express.js (Backend) monorepo projesi.
 ```
 ekucuk/
 ├── packages/
-│   ├── frontend/              # React + TypeScript + Vite
+│   ├── frontend/              # React + TypeScript + Vite (Public Site)
 │   │   ├── src/
 │   │   │   ├── services/      # API servisleri
 │   │   │   ├── App.tsx
@@ -15,6 +15,13 @@ ekucuk/
 │   │   ├── package.json
 │   │   ├── vite.config.ts
 │   │   └── .env
+│   ├── admin/                 # React + TypeScript + Vite (Admin Panel)
+│   │   ├── src/
+│   │   │   ├── pages/         # Dashboard, Users, Projects, Settings
+│   │   │   ├── App.tsx
+│   │   │   └── main.tsx
+│   │   ├── package.json
+│   │   └── vite.config.ts
 │   ├── backend/               # Express.js + Node.js
 │   │   ├── src/
 │   │   │   └── index.js       # Express server
@@ -112,17 +119,21 @@ npm run dev
 ### Root Seviyeden (Önerilen)
 
 ```bash
-# Her iki paketi paralel çalıştır (Development)
+# Tüm paketleri paralel çalıştır (Development)
 npm run dev
 
-# Sadece Frontend'i çalıştır
+# Sadece Frontend'i çalıştır (Public Site - Port 3000)
 npm run dev:frontend
 
-# Sadece Backend'i çalıştır
+# Sadece Admin Panel'i çalıştır (Port 3001)
+npm run dev:admin
+
+# Sadece Backend'i çalıştır (Port 5001)
 npm run dev:backend
 
-# Frontend build (Production için)
-npm run build:frontend
+# Build (Production için)
+npm run build:frontend    # Frontend build
+npm run build:admin       # Admin panel build
 
 # Tüm paketleri build et
 npm run build
@@ -131,15 +142,21 @@ npm run build
 ### Direkt Paket İçinden Çalıştırma
 
 ```bash
-# Frontend
+# Frontend (Public Site)
 cd packages/frontend
-npm run dev           # Development server (Vite)
+npm run dev           # Development server (Vite) - Port 3000
+npm run build         # Production build
+npm run preview       # Build'i önizle
+
+# Admin Panel
+cd packages/admin
+npm run dev           # Development server (Vite) - Port 3001
 npm run build         # Production build
 npm run preview       # Build'i önizle
 
 # Backend
 cd packages/backend
-npm run dev           # Development (nodemon ile)
+npm run dev           # Development (nodemon ile) - Port 5001
 npm start             # Production (node ile)
 ```
 
@@ -152,6 +169,75 @@ curl http://localhost:5001/api/health
 # Veya tarayıcıda
 # http://localhost:5001/api/health
 ```
+
+---
+
+## 🎛️ Admin Panel
+
+Admin panel, backend'i yönetmek için ayrı bir React uygulamasıdır.
+
+### 📍 Erişim
+- **URL:** http://localhost:3001
+- **Port:** 3001
+- **Package:** `@ekucuk/admin`
+
+### 📄 Sayfalar
+
+#### 1. Dashboard (`/`)
+- Sistem istatistikleri (kullanıcılar, projeler, görevler)
+- Son aktiviteler
+- Genel bakış
+
+#### 2. Users (`/users`)
+- Kullanıcı listesi (tablo görünümü)
+- Kullanıcı ekleme/düzenleme/silme (TODO)
+- Rol ve durum yönetimi
+
+#### 3. Projects (`/projects`)
+- Proje kartları grid görünümü
+- Backend'den `@ekucuk/shared` types kullanarak veri çekme
+- CRUD işlemleri (TODO)
+
+#### 4. Settings (`/settings`)
+- Genel ayarlar
+- Email yapılandırması
+- API ayarları
+
+### 🔒 Authentication
+Şu anda `isAuthenticated = true` olarak ayarlı (mock). Gerçek authentication:
+
+```typescript
+// TODO: packages/admin/src/App.tsx
+const isAuthenticated = checkAuth(); // Implement this
+```
+
+### 🎨 Styling
+- Vanilla CSS (packages/admin/src/App.css)
+- Modern, temiz admin panel tasarımı
+- Responsive grid layouts
+- Tailwind eklemek isterseniz: `npm install -D tailwindcss @tailwindcss/vite`
+
+### 🔗 Shared Types Kullanımı
+Admin panel, backend ile aynı type'ları kullanır:
+
+```typescript
+import type { Project } from '@ekucuk/shared'
+
+// API'den veri çek
+const projects: Project[] = await fetchProjects()
+```
+
+### 🚀 Geliştirme
+```bash
+# Admin panel'i çalıştır
+npm run dev:admin
+
+# Veya
+cd packages/admin
+npm run dev
+```
+
+**Not:** Frontend (3000) ve Admin (3001) aynı anda çalışabilir!
 
 ---
 

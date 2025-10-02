@@ -7,11 +7,13 @@
   "scripts": {
     "dev": "npm run build:shared && concurrently \"npm run watch:shared\" \"lerna run dev --parallel\"",
     "dev:frontend": "lerna run dev --scope=@ekucuk/frontend",
+    "dev:admin": "lerna run dev --scope=@ekucuk/admin",
     "dev:backend": "npm run build:shared && concurrently \"npm run watch:shared\" \"lerna run dev --scope=@ekucuk/backend\"",
     "build": "npm run build:shared && lerna run build",
     "build:shared": "lerna run build --scope=@ekucuk/shared",
-    "watch:shared": "lerna run watch --scope=@ekucuk/shared",
     "build:frontend": "lerna run build --scope=@ekucuk/frontend",
+    "build:admin": "lerna run build --scope=@ekucuk/admin",
+    "watch:shared": "lerna run watch --scope=@ekucuk/shared",
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "install:all": "npm install && lerna bootstrap"
