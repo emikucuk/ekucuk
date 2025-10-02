@@ -1,28 +1,23 @@
 export const navResources = {
   home: {
-    TR: "Ana Sayfa",
-    EN: "Home",
-    DE: "Startseite"
+    TR: "Ben Kimim?",
+    EN: "Who Am I?",
+    DE: "Wer bin ich?"
   },
   about: {
-    TR: "Hakkında",
+    TR: "Hakkımda",
     EN: "About",
-    DE: "Über uns"
+    DE: "Über mich"
   },
   projects: {
-    TR: "Projeler",
+    TR: "Projelerim",
     EN: "Projects",
     DE: "Projekte"
   },
   contact: {
     TR: "İletişim",
     EN: "Contact",
-    DE: "Kontakt"
-  },
-  dbTest: {
-    TR: "DB Test",
-    EN: "DB Test",
-    DE: "DB Test"
+    DE: "Kontaktiere mich"
   }
 }
 

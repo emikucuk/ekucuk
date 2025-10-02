@@ -22,10 +22,16 @@ ekucuk/
 │   │   │   └── main.tsx
 │   │   ├── package.json
 │   │   └── vite.config.ts
-│   ├── backend/               # Express.js + Node.js
+│   ├── backend/               # Express.js + Node.js (Layered Architecture)
 │   │   ├── src/
-│   │   │   └── index.js       # Express server
+│   │   │   ├── controllers/   # Request/Response handling
+│   │   │   ├── services/      # Business logic
+│   │   │   ├── models/        # Data models & validation
+│   │   │   ├── routes/        # API endpoints
+│   │   │   ├── middlewares/   # Global middlewares
+│   │   │   └── index.js       # Server entry point
 │   │   ├── package.json
+│   │   ├── README.md          # Backend dokümantasyonu
 │   │   └── .env
 │   └── shared/                # Ortak types & helpers
 │       ├── src/
@@ -238,6 +244,108 @@ npm run dev
 ```
 
 **Not:** Frontend (3000) ve Admin (3001) aynı anda çalışabilir!
+
+---
+
+## 🏗️ Backend Katmanlı Mimari
+
+Backend, **Layered Architecture** pattern kullanarak organize edilmiştir.
+
+### 📐 Mimari Yapı
+
+```
+Request → Routes → Controllers → Services → Models → Database (future)
+```
+
+### 📁 Katmanlar
+
+#### 1. **Routes** (`src/routes/`)
+- Endpoint tanımları (GET, POST, PUT, DELETE)
+- Path definitions
+- Controller binding
+
+```javascript
+// routes/projectRoutes.js
+router.get('/', projectController.getAllProjects)
+router.post('/', projectController.createProject)
+```
+
+#### 2. **Controllers** (`src/controllers/`)
+- Request/Response handling
+- Input validation
+- Service calls
+- HTTP status codes
+- Response formatting
+
+```javascript
+// controllers/projectController.js
+async getAllProjects(req, res) {
+  try {
+    const projects = await projectService.getAllProjects()
+    res.json(successResponse(projects))
+  } catch (error) {
+    res.status(500).json(errorResponse('ERROR', error.message))
+  }
+}
+```
+
+#### 3. **Services** (`src/services/`)
+- Business logic
+- CRUD operations
+- Data processing
+- External API calls
+
+```javascript
+// services/projectService.js
+async getAllProjects() {
+  const projects = await this.fetchFromDB()
+  return projects.map(p => new Project(p))
+}
+```
+
+#### 4. **Models** (`src/models/`)
+- Data structure
+- Validation logic
+- Field definitions
+
+```javascript
+// models/Project.js
+static validate(data) {
+  // Validation logic
+}
+```
+
+#### 5. **Middlewares** (`src/middlewares/`)
+- Global error handling
+- Authentication (future)
+- Logging
+
+### 📝 Yeni Endpoint Ekleme
+
+**Detaylı rehber:** `packages/backend/README.md`
+
+Kısaca:
+1. Model oluştur → `models/User.js`
+2. Service oluştur → `services/userService.js`
+3. Controller oluştur → `controllers/userController.js`
+4. Route oluştur → `routes/userRoutes.js`
+5. Route'u index'e ekle → `routes/index.js`
+
+### 📍 Mevcut Endpoint'ler
+
+```
+GET    /api/health          - Backend health check
+GET    /api/projects        - Tüm projeler
+GET    /api/projects/:id    - ID'ye göre proje
+POST   /api/projects        - Yeni proje oluştur
+POST   /api/contact         - İletişim formu gönder
+GET    /api/contact         - İletişim formları (Admin)
+```
+
+### 🔍 Daha Fazla Bilgi
+
+Backend mimarisi, best practices ve örnek kodlar için:
+**`packages/backend/README.md`** dosyasını inceleyin.
 
 ---
 

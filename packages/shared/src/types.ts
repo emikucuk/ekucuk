@@ -7,6 +7,15 @@ export interface ApiResponse<T> {
   } | null;
 }
 
+export interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  website: string;
+  message: string;
+}
+
 export interface Project {
   id: number;
   title: string;
