@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run build:shared && concurrently \"npm run watch:shared\" \"lerna run dev --parallel\"",
+    "dev:frontend": "lerna run dev --scope=@ekucuk/frontend",
+    "dev:backend": "npm run build:shared && concurrently \"npm run watch:shared\" \"lerna run dev --scope=@ekucuk/backend\"",
+    "build": "npm run build:shared && lerna run build",
+    "build:shared": "lerna run build --scope=@ekucuk/shared",
+    "watch:shared": "lerna run watch --scope=@ekucuk/shared",
+    "build:frontend": "lerna run build --scope=@ekucuk/frontend",
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "install:all": "npm install && lerna bootstrap"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "lerna": "^9.0.0"
+  }
+}
