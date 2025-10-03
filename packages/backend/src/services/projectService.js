@@ -13,7 +13,14 @@ class ProjectService {
       { id: 2, title: 'E-commerce App', tech: 'React, Node.js' },
       { id: 3, title: 'Task Manager', tech: 'React, MongoDB, Express' },
       { id: 4, title: 'Blog Website', tech: 'React, Node.js' },
-      { id: 5, title: 'Chat Application', tech: 'React, Node.js' }
+      { id: 5, title: 'Chat Application', tech: 'React, Node.js' },
+      { id: 6, title: 'Dashboard', tech: 'React, Node.js' },
+      { id: 7, title: 'Admin Panel', tech: 'React, Node.js' },
+      { id: 8, title: 'E-commerce App', tech: 'React, Node.js' },
+      { id: 9, title: 'Task Manager', tech: 'React, MongoDB, Express' },
+      { id: 10, title: 'Blog Website', tech: 'React, Node.js' },
+      { id: 11, title: 'Chat Application', tech: 'React, Node.js' },
+      { id: 12, title: 'Dashboard', tech: 'React, Node.js' }
     ]
   }
 

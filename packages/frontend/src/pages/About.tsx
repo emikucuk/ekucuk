@@ -1,9 +1,16 @@
+import { useTranslationService } from "../i18n/useTranslationService";
+import { resourcesMap } from "../resources/translations";
+
 const About = () => {
+  const { t } = useTranslationService();
   return (
     <div className="max-w-7xl animate-fadeIn">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-        👤 About Me
-      </h1>
+      <div className="mb-4">
+        <span className="text-4xl mr-2">👤</span>
+        <span className="text-4xl font-semibold text-blue-600 dark:text-blue-500">
+          {t(resourcesMap.about.title)}
+        </span>
+      </div>
       
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6 transition-colors duration-200">
         <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">

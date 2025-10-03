@@ -63,5 +63,10 @@ export const commonResources = {
     TR: "Aydınlık Mod",
     EN: "Light Mode",
     DE: "Hellmodus"
+  },
+  downloadCV: {
+    TR: "CV İndir",
+    EN: "Download CV",
+    DE: "CV herunterladen"
   }
 }

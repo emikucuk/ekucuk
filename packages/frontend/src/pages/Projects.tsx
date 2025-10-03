@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import type { Project } from '@ekucuk/shared'
 import { apiRequest } from '../services/api'
+import { useTranslationService } from '../i18n/useTranslationService';
+import { resourcesMap } from '../resources/translations';
 
 const Projects = () => {
+  const { t } = useTranslationService();
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -24,9 +27,12 @@ const Projects = () => {
 
   return (
     <div className="max-w-7xl animate-fadeIn">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-        📁 Projects
-      </h1>
+      <div className="mb-4">
+        <span className="text-4xl mr-2">📁</span>
+        <span className="text-4xl font-semibold text-blue-600 dark:text-blue-500">
+          {t(resourcesMap.projects.title)}
+        </span>
+      </div>
       
       {loading ? (
         <div className="flex items-center justify-center h-64">
