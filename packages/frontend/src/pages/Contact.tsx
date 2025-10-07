@@ -17,7 +17,7 @@ const Contact = () => {
           {t(resourcesMap.contact.title)}
         </span>
       </div>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+      <p className="text-lg text-gray-800 dark:text-gray-300 mb-8">
         {t(resourcesMap.contact.description)}
       </p>
       {status && (
@@ -63,7 +63,7 @@ const Contact = () => {
                   <VscMail size={29} className='text-blue-600 dark:text-white group-hover:text-white' />
                 </motion.div>
                 <div>
-                  <p className='text-lg text-gray-600 dark:text-gray-300'>eminkucuk612@gmail.com</p>
+                  <p className='text-lg text-gray-800 dark:text-gray-300'>eminkucuk612@gmail.com</p>
                 </div>
               </a>
               <a href="tel:+905348860502" className='flex items-center gap-4'>
@@ -94,7 +94,7 @@ const Contact = () => {
                   <VscCallOutgoing size={26} className='text-blue-600 dark:text-white group-hover:text-white' />
                 </motion.div>
                 <div>
-                  <p className='text-lg text-gray-600 dark:text-gray-300'>+90 534 886 05 02</p>
+                  <p className='text-lg text-gray-800 dark:text-gray-300'>+90 534 886 05 02</p>
                 </div>
               </a>
               <a href="https://www.google.com/maps/d/u/0/embed?mid=1tMPf9kw6HEwpHneOhFRupJlZyxw&hl=tr&ie=UTF8&msa=0&ll=40.821830999999996%2C29.310578999999993&spn=0.015588%2C0.027466&z=15&output=embed" target='_blank' className='flex items-center gap-4'>
@@ -125,7 +125,7 @@ const Contact = () => {
                   <VscMap  size={30} className='text-blue-600 dark:text-white group-hover:text-white' />
                 </motion.div>
                 <div>
-                  <p className='text-lg text-gray-600 dark:text-gray-300'>TUZLA/İstanbul, Türkiye</p>
+                  <p className='text-lg text-gray-800 dark:text-gray-300'>TUZLA/İstanbul, Türkiye</p>
                 </div>
               </a>
             </div>

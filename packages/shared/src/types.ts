@@ -23,6 +23,14 @@ export interface Project {
   tech: string;
 }
 
+export interface Technology {
+  id: number;
+  title: string;
+  image: string;
+  order: number;
+  createdAt: Date;
+}
+
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
 
 export interface ApiRequestParams<TResponse = any, TBody = any> {

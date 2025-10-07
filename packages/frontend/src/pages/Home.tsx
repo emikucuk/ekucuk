@@ -10,7 +10,7 @@ const Home = () => {
           {t(resourcesMap.home.welcome)}
         </span>
       </div>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+      <p className="text-lg text-gray-800 dark:text-gray-300 mb-8">
         Modern monorepo projesi - Lerna ile yönetilen React + Express.js uygulaması.
       </p>
     </div>
