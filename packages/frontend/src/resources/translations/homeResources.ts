@@ -1,13 +1,38 @@
 export const homeResources = {
   welcome: {
-    TR: "Portfolio'ya Hoş Geldiniz",
-    EN: "Welcome to Portfolio",
-    DE: "Willkommen zum Portfolio"
+    TR: "Portfolio'ma Hoş Geldiniz",
+    EN: "Welcome to my Portfolio",
+    DE: "Willkommen zu meinem Portfolio"
   },
   description: {
-    TR: "Modern monorepo projesi - Lerna ile yönetilen React + Express.js uygulaması.",
-    EN: "Modern monorepo project - React + Express.js application managed by Lerna.",
-    DE: "Modernes Monorepo-Projekt - React + Express.js Anwendung verwaltet von Lerna."
+    TR: "Yıllardır yazılım sektöründe çalışıyorum. Beni buradan takip edebilirsiniz.",
+    EN: "I have been working in the software industry for years. You can follow me from here.",
+    DE: "Ich habe seit Jahren in der Software-Industrie gearbeitet. Sie können mich von hier verfolgen."
+  },
+  available:{
+    TR: "İŞ TEKLİFLERİNİZ İÇİN HAZIRIM!",
+    EN: "I AM AVAILABLE FOR FREELANCE WORK!",
+    DE: "Ich bin verfügbar für FREELANCE ARBEIT!"
+  },
+  yearsOfExperience: {
+    TR: "Yıllık Tecrübe",
+    EN: "Years of Experience",
+    DE: "Jahre Erfahrung"
+  },
+  happyClients: {
+    TR: "Memnun Müşteri",
+    EN: "Happy Client",
+    DE: "Zufriedene Kunde"
+  },
+  projectsCompleted: {
+    TR: "Tamamlanan Projeler",
+    EN: "Completed Projects",
+    DE: "Abgeschlossene Projekte"
+  },
+  spendTime: {
+    TR: "Harcadığım Zaman",
+    EN: "Spent Time",
+    DE: "Verbrachte Zeit"
   },
   fastModern: {
     TR: "Hızlı & Modern",
